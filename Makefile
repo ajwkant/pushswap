@@ -6,7 +6,7 @@
 #    By: akant <akant@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/05/12 15:18:39 by akant         #+#    #+#                  #
-#    Updated: 2021/05/17 11:58:05 by akant         ########   odam.nl          #
+#    Updated: 2021/05/18 11:44:59 by akant         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ clean:
 	$(MAKE) -C ./libft clean
 
 fclean: clean
-	rm -f $(NAME_PS) $(NAME_CH)
+	rm -f $(NAME_PS) $(NAME_CH) $(OBJ_P) $(OBJ_C)
 	$(MAKE) -C ./libft fclean
 
 re: fclean all

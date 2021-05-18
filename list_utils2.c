@@ -24,6 +24,8 @@ int	push_a(t_dlist *a, t_dlist *b)
 	if (!node)
 		return (0);
 	list_push(a, node);
+	a->nodes++;
+	b->nodes--;
 	return (1);
 }
 
@@ -35,6 +37,8 @@ int	push_b(t_dlist *a, t_dlist *b)
 	if (!node)
 		return (0);
 	list_push(b, node);
+	a->nodes--;
+	b->nodes++;
 	return (1);
 }
 

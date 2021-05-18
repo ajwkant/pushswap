@@ -6,7 +6,7 @@
 /*   By: akant <akant@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/08 12:31:12 by akant         #+#    #+#                 */
-/*   Updated: 2021/05/17 13:35:38 by akant         ########   odam.nl         */
+/*   Updated: 2021/05/18 11:41:06 by akant         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,6 @@ int		read_numbers(int argc, char **argv, t_dlist *a)
 	return (1);
 }
 
-int		is_empty(t_dlist *b)
-{
-	if (b->first == NULL)
-		return (1);
-	return (0);
-}
-
 int		check_input(int argc, char **argv, t_dlist	*a, t_dlist	*b)
 {
 	char	*line;
@@ -101,7 +94,7 @@ int		check_input(int argc, char **argv, t_dlist	*a, t_dlist	*b)
 	// print_list(a);
 	// printf("-------\n");
 	// print_list(b);
-	if (check_order(a) && is_empty(b))
+	if (check_order(a) && !b->first)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
@@ -112,6 +105,7 @@ int		check_input(int argc, char **argv, t_dlist	*a, t_dlist	*b)
 
 }
 
+// When parsing read into a long instead of int
 int		main(int argc, char **argv) // stop when there's an operation error
 {
 	t_dlist	*a;

@@ -17,6 +17,7 @@ typedef struct	s_dlist
 {
 	t_node		*first;
 	t_node		*last;
+	int			nodes;
 }				t_dlist;
 
 // List utils 1

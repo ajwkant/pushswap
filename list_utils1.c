@@ -9,6 +9,7 @@ t_dlist	*list_init(void)
 		return (NULL);
 	list->first = NULL;
 	list->last = NULL;
+	list->nodes = 0;
 	return (list);
 }
 
@@ -38,6 +39,7 @@ void	list_push(t_dlist *list, t_node *node)
 		node->next->prev = node;
 		list->first = node;
 	}
+	list->nodes++;
 }
 
 t_node	*list_pop(t_dlist *list)
@@ -49,6 +51,7 @@ t_node	*list_pop(t_dlist *list)
 		temp = list->first;
 		list->first = NULL;
 		list->last = NULL;
+		list->nodes--;
 		return (temp);
 	}
 	if (list->first)
@@ -57,6 +60,7 @@ t_node	*list_pop(t_dlist *list)
 		list->first = list->first->next;
 		list->first->prev = NULL;
 		temp->next = NULL;
+		list->nodes--;
 		return (temp);
 	}
 	return (NULL);
