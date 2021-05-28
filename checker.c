@@ -6,7 +6,7 @@
 /*   By: akant <akant@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/08 12:31:12 by akant         #+#    #+#                 */
-/*   Updated: 2021/05/18 11:41:06 by akant         ########   odam.nl         */
+/*   Updated: 2021/05/28 16:20:04 by akant         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	find_operation(char *line, t_dlist *a, t_dlist *b)
 	if (!ft_strcmp(line, "ss"))
 		return (swap(a) && swap(b));
 	if (!ft_strcmp(line, "pa"))
-		return (push_a(a, b));
+		return (push_list(b, a));
 	if (!ft_strcmp(line, "pb"))
-		return (push_b(a, b));
+		return (push_list(a, b));
 	if (!ft_strcmp(line, "ra"))
 		return (rotate(a));
 	if (!ft_strcmp(line, "rb"))
@@ -80,7 +80,7 @@ int		check_input(int argc, char **argv, t_dlist	*a, t_dlist	*b)
 	ret = get_next_line(0, &line);
 	while (ret > 0)
 	{
-		printf("loopje\n");
+		// printf("loopje\n");
 		find_operation(line, a, b);
 		free(line);
 		if (ret == 0)

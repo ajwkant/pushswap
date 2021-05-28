@@ -35,8 +35,8 @@ void	list_push(t_dlist *list, t_node *node)
 	}
 	else
 	{
+		list->first->prev = node;
 		node->next = list->first;
-		node->next->prev = node;
 		list->first = node;
 	}
 	list->nodes++;
@@ -74,7 +74,7 @@ void	print_list(t_dlist *list)
 
 	while (temp)
 	{
-		printf("%d\n", temp->content);
+		printf("List: %d\n", temp->content);
 		temp = temp->next;
 	}
 }

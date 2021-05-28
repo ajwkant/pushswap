@@ -6,13 +6,15 @@
 #    By: akant <akant@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/05/12 15:18:39 by akant         #+#    #+#                  #
-#    Updated: 2021/05/18 11:44:59 by akant         ########   odam.nl          #
+#    Updated: 2021/05/28 14:19:20 by akant         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME_PS = push_swap
 NAME_CH = checker
-SRCS_P =	push_swap.c list_utils1.c list_utils2.c list_utils3.c
+SRCS_P =	push_swap.c list_utils1.c list_utils2.c list_utils3.c tree.c \
+			tree_functionality.c sorting.c algorithmic_sort.c sort_two.c \
+			sort_three.c
 SRCS_C =	list_utils1.c list_utils2.c list_utils3.c checker.c get_next_line.c \
 			get_next_line_utils.c error.c
 OBJ_P = $(SRCS_P:%.c=%.o)

@@ -16,20 +16,7 @@ int	swap(t_dlist *list) // kan sneller gemaakt worden door niet pop en push te g
 	return (0);
 }
 
-int	push_a(t_dlist *a, t_dlist *b)
-{
-	t_node *node;
-
-	node = list_pop(b);
-	if (!node)
-		return (0);
-	list_push(a, node);
-	a->nodes++;
-	b->nodes--;
-	return (1);
-}
-
-int	push_b(t_dlist *a, t_dlist *b)
+int	push_list(t_dlist *a, t_dlist *b)
 {
 	t_node *node;
 
@@ -37,8 +24,6 @@ int	push_b(t_dlist *a, t_dlist *b)
 	if (!node)
 		return (0);
 	list_push(b, node);
-	a->nodes--;
-	b->nodes++;
 	return (1);
 }
 

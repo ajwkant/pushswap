@@ -38,3 +38,19 @@ int		check_order(t_dlist *list)
 	}
 	return (1);
 }
+
+int		find_pos(t_dlist *list, int find)
+{
+	int		x;
+	t_node	*current;
+
+	x = 0;
+	current = list->first;
+	while (current->content != find)
+	{
+		current = current->next;
+		x++;
+	}
+	// printf("x: %d\n", x);
+	return (x);
+}
