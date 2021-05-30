@@ -24,15 +24,13 @@ void	clear_stacklist(t_dlist *list)
 int		check_order(t_dlist *list)
 {
 	t_node	*current;
-	int		prev;
 
 	if (!list || !list->first)
 		return (-1);
-	prev = list->first->content;
 	current = list->first->next;
 	while (current)
 	{
-		if (current->content >= prev)
+		if (current->content <= current->prev->content)
 			return (0);
 		current = current->next;
 	}

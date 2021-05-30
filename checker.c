@@ -6,7 +6,7 @@
 /*   By: akant <akant@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/08 12:31:12 by akant         #+#    #+#                 */
-/*   Updated: 2021/05/28 16:20:04 by akant         ########   odam.nl         */
+/*   Updated: 2021/05/30 15:56:05 by akant         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int		read_numbers(int argc, char **argv, t_dlist *a)
 	{
 		if (!check_isdigit(argv[i]))
 			return (error_function("Not a valid number\n", -1));
-		node = new_node(ft_atoi(argv[i])); // check returnvalue
+		node = new_node(ft_atoi(argv[argc - i])); // check returnvalue
 		if (!node)
 			return (error_function("Node making failed\n", -1));
 		list_push(a, node);
@@ -80,7 +80,6 @@ int		check_input(int argc, char **argv, t_dlist	*a, t_dlist	*b)
 	ret = get_next_line(0, &line);
 	while (ret > 0)
 	{
-		// printf("loopje\n");
 		find_operation(line, a, b);
 		free(line);
 		if (ret == 0)
@@ -90,15 +89,10 @@ int		check_input(int argc, char **argv, t_dlist	*a, t_dlist	*b)
 	free(line);
 	if (ret == -1)
 		return (error_function("Error reading instructions", -1));
-	// printf("\n-------\n");
-	// print_list(a);
-	// printf("-------\n");
-	// print_list(b);
 	if (check_order(a) && !b->first)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
-	// printf("In order: %d\n", check_order(a));
 	clear_stacklist(a);
 	clear_stacklist(b);
 	return (1);

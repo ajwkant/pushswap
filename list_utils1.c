@@ -71,7 +71,6 @@ void	print_list(t_dlist *list)
 	t_node *temp;
 
 	temp = list->first;
-
 	while (temp)
 	{
 		printf("List: %d\n", temp->content);

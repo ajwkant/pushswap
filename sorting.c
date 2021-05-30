@@ -20,9 +20,10 @@ void	insert_after_third(t_dlist *a, t_dlist *b)
 {
 	rev_rotate(a);
 	push_list(b, a);
-	rotate(a);
-	rotate(a);
-	write_and_count("rra\npa\nra\nra\n", 13);
+	// rotate(a);
+	// rotate(a);
+	// write_and_count("rra\npa\nra\nra\n", 13);
+	write_and_count("rra\npa\n", 7);
 }
 
 void	rotate_a(t_dlist *a)
@@ -39,9 +40,11 @@ void	rev_rotate_a(t_dlist *a)
 
 void	rotate_correctly(t_dlist *a) // CONTENT
 {
-	if (a->first > a->first->next && a->first > a->last)
+	if (a->first->content > a->first->next->content &&
+		a->first->content > a->last->content)
 		rotate_a(a);
-	while (a->first < a->first->next && a->first > a->last)
+	while (a->first->content < a->first->next->content &&
+		a->first->content > a->last->content)
 		rev_rotate_a(a);
 }
 

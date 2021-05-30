@@ -64,8 +64,8 @@ int		main(int argc, char **argv)
 	// // printf("node content: %d\n", treenode->content);
 	// printf("TEST\\n\n");
 	// printf("\n Instructions: %d\n", g_instructions);
-	printf("\n Stack A: \n");
-	print_list(a);
+	// printf("\n Stack A: \n");
+	// print_list(a);
 	// printf("\n Stack B: \n");
 	// print_list(b);
 	// printf("\nIn order: %d\n", check_order(a)); // Misschien de order aanpassen
