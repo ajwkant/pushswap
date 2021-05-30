@@ -50,3 +50,24 @@ t_tree	*tree_get_smallest(t_tree **tree) // --- Check wether remove parent is th
 	else
 		return (remove_parent(tree));
 }
+
+t_dlist	*find_chunk(t_tree **tree, int c)
+{
+	t_dlist	*list;
+	t_node	*node;
+	int		lowest;
+
+	list = list_init();
+	if (!list)
+		return (NULL);
+	while (c)
+	{
+		lowest = tree_get_smallest(tree);
+		node = new_node(lowest);
+		if (!node)
+			return (NULL);
+		list_push(list, node);
+		c--;
+	}
+	return (list);
+}

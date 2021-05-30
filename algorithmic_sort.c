@@ -39,7 +39,6 @@ void	b_to_a(t_dlist *a, t_dlist *b)
 		write_and_count("pa\n", 3);
 		push_list(b, a);
 	}
-
 }
 
 int		algorithmic_sort(t_dlist *a, t_dlist *b, t_tree **tree)
@@ -57,4 +56,23 @@ int		algorithmic_sort(t_dlist *a, t_dlist *b, t_tree **tree)
 	}
 	b_to_a(a, b);
 	return (1);
+}
+
+int	chunk_sort(t_dlist *a, t_dlist *b) // nieuwe poging om het met chunks te doen
+{
+	// int	total_to_be_sorted;
+	// int	num_per_box;
+	// int	boxes;
+	// int i;
+
+	// total_to_be_sorted = a->nodes;
+	// // Magic for selecting amount of boxes
+	// boxes = 5; // Temporary number
+	// i = 0;
+	// while (i < boxes)
+	// {
+	// 	insertion_sort(a, b, num_per_box * i); // To be looked at
+	// }
+
+	find_chunk
 }

@@ -98,39 +98,6 @@ int	sort_four_five(t_dlist *a, t_dlist *b)
 	return (1);
 }
 
-// int	insertion_sort(t_dlist *a, t_dlist *b, int chunk_size)
-// {
-// 	int lowest;
-// 	int i;
-
-// 	lowest = a->first->content;
-// 	i = a->nodes;
-// 	while (i)
-// 	{
-// 		rotate(a);
-// 		if (a->first < lowest)
-// 			lowest = a->first;
-// 		i--;
-// 	}
-// }
-
-// int	chunk_sort(t_dlist *a, t_dlist *b)
-// {
-// 	int	total_to_be_sorted;
-// 	int	num_per_box;
-// 	int	boxes;
-// 	int i;
-
-// 	total_to_be_sorted = a->nodes;
-// 	// Magic for selecting amount of boxes
-// 	boxes = 5; // Temporary number
-// 	i = 0;
-// 	while (i < boxes)
-// 	{
-// 		insertion_sort(a, b, num_per_box * i); // To be looked at
-// 	}
-// }
-
 int	sorting(t_dlist *a, t_dlist *b, t_tree **tree)
 {
 	if (a->nodes == 1)
