@@ -6,16 +6,16 @@
 /*   By: akant <akant@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/17 09:32:35 by akant         #+#    #+#                 */
-/*   Updated: 2021/05/17 11:49:14 by akant         ########   odam.nl         */
+/*   Updated: 2021/06/15 14:06:30 by akant         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int		buf_to_line(char **line, char *buffer)
+int	buf_to_line(char **line, char *buffer)
 {
-	int		start_i;
-	int		newline_found;
+	int	start_i;
+	int	newline_found;
 
 	start_i = ft_strlengnl(*line, '\0');
 	newline_found = ft_strccpy(*line + start_i, buffer, '\n');
@@ -23,7 +23,7 @@ int		buf_to_line(char **line, char *buffer)
 	return (newline_found);
 }
 
-int		read_line(char *buffer, int fd)
+int	read_line(char *buffer, int fd)
 {
 	int	bytes_read;
 
@@ -36,10 +36,10 @@ int		read_line(char *buffer, int fd)
 	return (bytes_read);
 }
 
-int		get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
-	static char		buffer[BUFFER_SIZE + 1];
-	int				bytes;
+	static char	buffer[BUFFER_SIZE + 1];
+	int			bytes;
 
 	if (fd < 0 || !line || BUFFER_SIZE <= 0 || read(fd, buffer, 0))
 		return (-1);

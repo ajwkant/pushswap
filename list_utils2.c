@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   list_utils2.c                                      :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: akant <akant@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/06/08 12:43:00 by akant         #+#    #+#                 */
+/*   Updated: 2021/06/15 14:26:26 by akant         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int	swap(t_dlist *list) // kan sneller gemaakt worden door niet pop en push te gebruiken
+void	swap(t_dlist *list)
 {
-	t_node *node1;
-	t_node *node2;
+	t_node	*node1;
+	t_node	*node2;
 
 	if (list && list->first && list->first->next)
 	{
@@ -11,23 +23,20 @@ int	swap(t_dlist *list) // kan sneller gemaakt worden door niet pop en push te g
 		node2 = list_pop(list);
 		list_push(list, node1);
 		list_push(list, node2);
-		return (1);
 	}
-	return (0);
 }
 
-int	push_list(t_dlist *a, t_dlist *b)
+void	push_list(t_dlist *a, t_dlist *b)
 {
-	t_node *node;
+	t_node	*node;
 
 	node = list_pop(a);
 	if (!node)
-		return (0);
+		return ;
 	list_push(b, node);
-	return (1);
 }
 
-int	rotate(t_dlist *list)
+void	rotate(t_dlist *list)
 {
 	if (list && list->first && list->first->next)
 	{
@@ -37,12 +46,10 @@ int	rotate(t_dlist *list)
 		list->first = list->first->next;
 		list->last->next->next = NULL;
 		list->last = list->last->next;
-		return (1);
 	}
-	return (0);
 }
 
-int	rev_rotate(t_dlist *list)
+void	rev_rotate(t_dlist *list)
 {
 	if (list && list->first && list->first->next)
 	{
@@ -52,7 +59,5 @@ int	rev_rotate(t_dlist *list)
 		list->last = list->last->prev;
 		list->first->prev->prev = NULL;
 		list->first = list->first->prev;
-		return (1);
 	}
-	return (0);
 }

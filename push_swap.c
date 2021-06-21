@@ -1,77 +1,63 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   push_swap.c                                        :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: akant <akant@student.codam.nl>               +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/06/07 14:21:08 by akant         #+#    #+#                 */
+/*   Updated: 2021/06/15 14:24:32 by akant         ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int		g_instructions;
-
-int		main(int argc, char **argv)
+void	read_input(int argc, char **argv, t_dlist *a, t_tree **tree)
 {
 	int		i;
-	// t_dlist	*index_list;
-	t_tree	*tree;
-	t_dlist	*a;
-	t_dlist	*b;
-	t_node	*node;
 	int		num;
 	t_tree	*treenode;
+	t_node	*node;
 
-	// checkinput();
-	// index_list = list_init();
-	a = list_init(); // check returnvalue
-	b = list_init();
 	i = 1;
 	while (i < argc)
 	{
 		num = ft_atoi(argv[argc - i]);
-		node = new_node(num); // check returnvalue
-		// node->index = i - 1;
-		treenode = tree_add(&tree, num);
-		if (!num || !treenode) // ------------ num can actually be 0
-			return (-1); // free etc
+		if ((num == 0 || num == -1)
+			&& !(!ft_strcmp(argv[argc - i], "-1")
+				|| !ft_strcmp(argv[argc - i], "0")))
+			free_list_tree(*tree, a, 1);
+		node = new_node(num);
+		if (!node)
+			free_list_tree(*tree, a, 1);
+		treenode = tree_add(tree, num);
+		if (!treenode)
+		{
+			free(node);
+			free_list_tree(*tree, a, 1);
+		}
 		list_push(a, node);
 		i++;
 	}
-	// print_tree(tree);
-	// printf("\n");
-	// free_tree(tree);
-	// printf("\n");
-	// printf("\n Original stack \n");
-	// print_list(a);
-	// printf("\n--------------\n");
-	sorting(a, b, &tree);
-	// printf("Instructions: %d\n", g_instructions);
+}
 
-	// Print van laag naar hoog uit vanuit de tree en rebalance
-	// treenode = tree_get_smallest(&tree);
-	// printf("node content: %d\n", treenode->content);
-	// treenode = tree_get_smallest(&tree);
-	// printf("node content: %d\n", treenode->content);
-	// treenode = tree_get_smallest(&tree);
-	// printf("node content: %d\n", treenode->content);
-	// treenode = tree_get_smallest(&tree);
-	// printf("node content: %d\n", treenode->content);
-	// treenode = tree_get_smallest(&tree);
-	// printf("node content: %d\n", treenode->content);
-	// treenode = tree_get_smallest(&tree);
-	// printf("node content: %d\n", treenode->content);
-	// treenode = tree_get_smallest(&tree);
-	// printf("node content: %d\n", treenode->content);
-	// treenode = tree_get_smallest(&tree);
-	// printf("node content: %d\n", treenode->content);
-	// treenode = tree_get_smallest(&tree);
-	// printf("node content: %d\n", treenode->content);
-	// treenode = tree_get_smallest(&tree);
-	// printf("node content: %d\n", treenode->content);
-	// // treenode = tree_get_smallest(&tree);
-	// // printf("node content: %d\n", treenode->content);
-	// printf("TEST\\n\n");
-	// printf("\n Instructions: %d\n", g_instructions);
-	// printf("\n Stack A: \n");
-	// print_list(a);
-	// printf("\n Stack B: \n");
-	// print_list(b);
-	// printf("\nIn order: %d\n", check_order(a)); // Misschien de order aanpassen
+int	main(int argc, char **argv)
+{
+	t_dlist	*a;
+	t_dlist	*b;
+	t_tree	*tree;
+
+	a = list_init();
+	if (!a)
+		error_function();
+	b = list_init();
+	if (!b)
+		free_list_tree(NULL, a, 0);
+	read_input(argc, argv, a, &tree);
+	if (!tree)
+		error_function();
+	sorting(a, b, &tree);
 	clear_stacklist(a);
-	clear_stacklist(b);
-	free_tree(tree);
-	// system("leaks a.out");
+	free_list_tree(tree, b, 0);
 	return (0);
 }

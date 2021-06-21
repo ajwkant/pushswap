@@ -6,15 +6,15 @@
 /*   By: akant <akant@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/17 09:44:49 by akant         #+#    #+#                 */
-/*   Updated: 2021/05/17 11:49:34 by akant         ########   odam.nl         */
+/*   Updated: 2021/06/15 14:05:51 by akant         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int		ft_strlengnl(char *str, char delim)
+int	ft_strlengnl(char *str, char delim)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != delim && str[i])
@@ -22,7 +22,7 @@ int		ft_strlengnl(char *str, char delim)
 	return (i);
 }
 
-int		ft_strccpy(char *s1, char *s2, char c)
+int	ft_strccpy(char *s1, char *s2, char c)
 {
 	while (s2 && *s2 != c && *s2)
 	{
@@ -38,7 +38,7 @@ int		ft_strccpy(char *s1, char *s2, char c)
 
 void	move_buf_forward(char *buf)
 {
-	int i;
+	int	i;
 
 	i = ft_strlengnl(buf, '\n') + 1;
 	if (buf[i - 1] == '\0')

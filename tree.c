@@ -2,7 +2,7 @@
 
 t_tree	*tree_new_node(int a)
 {
-	t_tree *new;
+	t_tree	*new;
 
 	new = malloc(sizeof(t_tree));
 	if (!new)
@@ -45,17 +45,6 @@ t_tree	*tree_add(t_tree **tree, int a)
 	else
 		return (tree_add_rec(*tree, a));
 	return (*tree);
-}
-
-void	print_tree(t_tree *tree)
-{
-	if (!tree)
-		return ;
-	if (tree->left)
-		print_tree(tree->left);
-	printf("%d ", tree->content);
-	if (tree->right)
-		print_tree(tree->right);
 }
 
 void	free_help(t_tree *tree)

@@ -2,7 +2,7 @@
 
 void	clear_stacklist(t_dlist *list)
 {
-	t_node *node;
+	t_node	*node;
 
 	if (list)
 	{
@@ -21,7 +21,7 @@ void	clear_stacklist(t_dlist *list)
 	}
 }
 
-int		check_order(t_dlist *list)
+int	check_order(t_dlist *list)
 {
 	t_node	*current;
 
@@ -37,18 +37,19 @@ int		check_order(t_dlist *list)
 	return (1);
 }
 
-int		find_pos(t_dlist *list, int find)
+int	find_pos(t_dlist *list, int find)
 {
 	int		x;
 	t_node	*current;
 
 	x = 0;
 	current = list->first;
-	while (current->content != find)
+	while (current && current->content != find)
 	{
 		current = current->next;
 		x++;
+		if (!current)
+			return (-1);
 	}
-	// printf("x: %d\n", x);
 	return (x);
 }

@@ -1,7 +1,7 @@
 #include "push_swap.h"
 
-int	error_function(char *string, int errno)
+void	error_function(void)
 {
-	write(2, string, ft_strlen(string));
-	return (errno);
+	write(2, "Error\n", 6);
+	exit(-1);
 }

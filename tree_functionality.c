@@ -12,7 +12,7 @@ t_tree	*smaller(t_tree *tree)
 		tree->left = temp->right;
 		return (temp);
 	}
-	else// if (tree->left) dit moet altijd gebeuren als het goed is
+	else
 	{
 		temp = tree->left;
 		tree->left = NULL;
@@ -29,7 +29,7 @@ t_tree	*remove_parent(t_tree **tree)
 	return (temp);
 }
 
-t_tree	*tree_get_smallest(t_tree **tree) // --- Check wether remove parent is the last node oid
+t_tree	*tree_get_smallest(t_tree **tree)
 {
 	t_tree	*temp;
 
@@ -60,9 +60,10 @@ t_dlist	*find_chunk(t_tree **tree, int c)
 	list = list_init();
 	if (!list)
 		return (NULL);
-	while (c)
+	list->nodes = c;
+	while (c && *tree)
 	{
-		lowest = tree_get_smallest(tree);
+		lowest = tree_get_smallest(tree)->content;
 		node = new_node(lowest);
 		if (!node)
 			return (NULL);

@@ -2,7 +2,7 @@
 
 t_dlist	*list_init(void)
 {
-	t_dlist *list;
+	t_dlist	*list;
 
 	list = malloc(sizeof(t_dlist));
 	if (!list)
@@ -15,7 +15,7 @@ t_dlist	*list_init(void)
 
 t_node	*new_node(int x)
 {
-	t_node *node;
+	t_node	*node;
 
 	node = malloc(sizeof(t_node));
 	if (!node)
@@ -44,7 +44,7 @@ void	list_push(t_dlist *list, t_node *node)
 
 t_node	*list_pop(t_dlist *list)
 {
-	t_node *temp;
+	t_node	*temp;
 
 	if (list->first && list->first == list->last)
 	{
@@ -68,7 +68,7 @@ t_node	*list_pop(t_dlist *list)
 
 void	print_list(t_dlist *list)
 {
-	t_node *temp;
+	t_node	*temp;
 
 	temp = list->first;
 	while (temp)
